@@ -2,4 +2,4 @@
 
 {{indexmenu_n>4}}
 
-![nsort dsort msort](/images/indexmenu\>/network/vpc/guide#2)
+{{indexmenu>:network:vpc:guide#2 | nsort dsort msort}}

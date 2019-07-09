@@ -28,4 +28,6 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
 
 **路由表**：路由表是VPC级别的产品，可以控制云资源的网络流量路径。一张路由表由多条路由规则组成，通过与子网绑定，对子网内所有的资源生效。
 
-**目录** ![nsort dsort msort](/indexmenu\>/network/vpc/introduction#2)
+**目录** 
+
+{{indexmenu>:network:vpc/introduction#2 | nsort dsort msort}}

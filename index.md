@@ -7,4 +7,4 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
 
 **目录**
 
-![nsort dsort msort](/images/indexmenu\>/network/vpc#1)
+{{indexmenu>:network:vpc#1 | nsort dsort msort}}

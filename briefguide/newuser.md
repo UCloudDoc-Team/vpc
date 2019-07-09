@@ -6,4 +6,4 @@
 
 **目录**
 
-![nsort dsort msort](/images/indexmenu\>/network/vpc/briefguide#2)
+{{indexmenu>:network:vpc/briefguide#2 | nsort dsort msort}}
