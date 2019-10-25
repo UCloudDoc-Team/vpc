@@ -1,4 +1,4 @@
-{{indexmenu_n>1}}
+
 
 # 搭建VPC网络
 
@@ -6,4 +6,4 @@
 
 **目录**
 
-{{indexmenu>:network:vpc/briefguide#2 | nsort dsort msort}}
+

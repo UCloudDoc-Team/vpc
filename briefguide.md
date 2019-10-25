@@ -1,6 +1,6 @@
 # 快速上手
 
-{{indexmenu_n>3}}
+
 
 ## Step1 创建VPC实例
 

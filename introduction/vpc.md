@@ -1,6 +1,6 @@
 # 产品简介
 
-{{indexmenu_n>1}}
+
 
 ## 私有网络简介
 
@@ -30,4 +30,4 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
 
 **目录** 
 
-{{indexmenu>:network:vpc/introduction#2 | nsort dsort msort}}
+
