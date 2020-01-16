@@ -29,11 +29,11 @@
 
     默认出站规则即为全部协议、全部端口流量的出站允许。
 
-![image](/images/introduction/入站规则.png)
+![](/images/introduction/入站规则.png)
 
     默认入站规则即为全部协议、全部端口流量的入站允许。
 
-![image](/images/introduction/出站规则.png) 默认规则不允许编辑和删除，创建ACL时就存在。
+![](/images/introduction/出站规则.png) 默认规则不允许编辑和删除，创建ACL时就存在。
 
 默认规则优先级最低，可通过添加优先级更高的规则来覆盖默认规则。
 
