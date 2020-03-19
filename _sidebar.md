@@ -23,6 +23,7 @@
     * [VPC](network/vpc/guide/vpc)
     * [子网](network/vpc/guide/subnet)
     * [NAT网关](network/vpc/guide/natgw)
+    * [内网VIP](network/vpc/guide/vip)
     * [网络ACL](network/vpc/guide/networkacl)
     * [路由表](network/vpc/guide/routetable)
 * [FAQ](network/vpc/faq) 
