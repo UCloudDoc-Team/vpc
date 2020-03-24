@@ -1,6 +1,6 @@
-<div class="sidebar_title icon__uvpc"> 私有网络 VPC</div>
+# 概览
 
-* [概览](/vpc/README)
+
 * 产品简介
     * [产品简介](/vpc/introduction/vpc)
     * [VPC和子网简介](/vpc/introduction/subnet)

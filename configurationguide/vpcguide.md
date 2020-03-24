@@ -35,7 +35,7 @@
 
 子网数量和子网大小确定后，即可确定VPC的网段大小。
 
-VPC中不同子网间网络默认互通，若需为核心数据库业务设置访问权限，可配置网络ACL实现。具体可参考[ACL规划建议](https://docs.ucloud.cn/network/vpc/configurationguide/aclguide)
+VPC中不同子网间网络默认互通，若需为核心数据库业务设置访问权限，可配置网络ACL实现。具体可参考[ACL规划建议](https://docs.ucloud.cn/vpc/configurationguide/aclguide)
 
 ![](/images/configurationguide/vpc02.png)
 

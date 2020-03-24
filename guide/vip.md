@@ -197,4 +197,4 @@ Ubuntu配置文件中需要删除的配置段示例：
 ## 使用VIP与Keepalive配置服务高可用
 
 CentOS 6.x 和 Ubuntu 12+系统，参见
-[使用VIP与Keepalive配置服务高可用](/compute/uhost/public/keepalived)
+[使用VIP与Keepalive配置服务高可用](/uhost/public/keepalived)
