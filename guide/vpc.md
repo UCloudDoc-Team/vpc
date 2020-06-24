@@ -1,6 +1,23 @@
 # VPC
 
+<a href="#head1">`创建VPC`</a>
 
+<a href="#head2">`添加网段`</a>
+
+<a href="#head3">`查看VPC详情`</a>
+
+<a href="#head4">`网络互通`</a>
+
+<a href="#head5">`跨项目VPC互通`</a>
+
+<a href="#head6">`跨地域VPC互通`</a>
+
+<a href="#head7">`断开互通`</a>
+
+<a href="#head8">`删除VPC`</a>
+
+
+<a id="head1"/>
 
 ## 创建VPC
 
@@ -22,6 +39,9 @@
 
 ![image](/images/guide/create_vpc4.png)
 
+
+<a id="head2"/>
+
 ## 添加网段
 
 VPC创建后，可随时添加不重叠的多个网段。
@@ -36,6 +56,8 @@ VPC创建后，可随时添加不重叠的多个网段。
 
 点击“确定”，成功添加。
 
+<a id="head3"/>
+
 ## 查看VPC详情
 
 在“VPC”标签页中点击“详情”按钮，进入某个VPC的详情页面。
@@ -45,6 +67,9 @@ VPC创建后，可随时添加不重叠的多个网段。
 在详情页中，可以看到VPC的名称、资源id、备注、业务组、子网数、网段等基本信息。
 
 ![image](/images/guide/vpc_info2.png)
+
+<a id="head4"/>
+
 
 ## 网络互通
 
@@ -72,6 +97,8 @@ VPC创建后，可随时添加不重叠的多个网段。
 
 ![image](/images/guide/vpc_intercon6.png)
 
+<a id="head5"/>
+
 ## 跨项目VPC互通
 
 “网络互通”除打通同项目的不同VPC外，也允许不同项目间的VPC打通。
@@ -85,6 +112,9 @@ VPC创建后，可随时添加不重叠的多个网段。
 ![image](/images/guide/vpc_intercon7.png)
 
 在目标项目的VPC列表中，选择要打通的VPC，并点击“确定”确认，完成打通。
+
+<a id="head6"/>
+
 
 ## 跨地域VPC互通
 
@@ -104,6 +134,8 @@ VPC创建后，可随时添加不重叠的多个网段。
 
 在高速通道UDPN产品中，也提供“网络互通”能力，功能和此处相同。
 
+<a id="head7"/>
+
 ## 断开互通
 
 已经联通的VPC，可以选择断开互通。
@@ -117,6 +149,8 @@ VPC创建后，可随时添加不重叠的多个网段。
 ![image](/images/guide/vpc_intercon10.png)
 
 成功断开。“已联通的VPC”列表的联通信息会相应更新。
+
+<a id="head8"/>
 
 ## 删除VPC
 
