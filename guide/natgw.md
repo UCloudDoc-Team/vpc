@@ -58,7 +58,7 @@ NAT网关另外提供白名单模式。
 
 -  点击‘添加转发规则’，可新增规则。
 
-![image](/images/natgw_add_rule.png)
+![image](/images/natgw_add_rule1.png)
 
 -  点击‘修改’按钮，可以修改已有规则。
 
