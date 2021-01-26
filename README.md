@@ -4,6 +4,7 @@
     * [产品简介](/vpc/introduction/vpc)
     * [VPC和子网简介](/vpc/introduction/subnet)
     * [NAT网关简介](/vpc/introduction/natgw)
+    * [内网VIP简介](/vpc/introduction/vip)
     * [网络ACL简介](/vpc/introduction/acl)
     * [路由表简介](/vpc/introduction/routetable)
     * [计费说明](/vpc/introduction/price)    
