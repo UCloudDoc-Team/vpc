@@ -1,6 +1,6 @@
 # 概览
 
-* 产品简介。
+* 产品简介
     * [产品简介](/vpc/introduction/vpc)
     * [VPC和子网简介](/vpc/introduction/subnet)
     * [NAT网关简介](/vpc/introduction/natgw)
