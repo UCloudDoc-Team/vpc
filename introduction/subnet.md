@@ -12,7 +12,7 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
   - 192.168.0.0/16（192.168.0.0-192.168.255.255）掩码范围：最大为 /16 掩码，最小为 /29
     掩码。
     
-> 默认VPC不支持新增网段。[详情](https://cms-docs.ucloudadmin.com/vpc/configurationguide/vpcguide?id=_2%ef%bc%8c%e5%90%8d%e8%af%8d%e8%a7%a3%e9%87%8a)
+> 默认VPC不支持新增网，[详情](https://cms-docs.ucloudadmin.com/vpc/configurationguide/vpcguide?id=_2%ef%bc%8c%e5%90%8d%e8%af%8d%e8%a7%a3%e9%87%8a)。
 
 ## 子网
 
