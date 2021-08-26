@@ -2,7 +2,7 @@
 
 ## 创建安全组
 
-登录控制台，【全部产品】中选择[安全组](https://console.ucloud.cn/vpc/secGroup)，点击【创建】。
+登录控制台，【全部产品】中选择[安全组](https://console.ucloud.cn/vpc/secgroup)，点击【创建】。
 
 ![image](/images/guide/secgroup1.png)
 
