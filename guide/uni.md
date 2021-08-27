@@ -127,7 +127,7 @@ default via 10.42.0.1 dev eth2 src 10.42.175.116 table net_102
 from 10.42.175.116 table net_102
 ```
 
-### Windows配置
+### Windows配置指南
 
 标准镜像默认开通DHCP，无需多余配置。
 
