@@ -8,6 +8,7 @@
 
 ![image](/images/guide/uni1.png)
 
+说明：
 - 新建网卡自动绑定默认web防火墙。
 - 自定义网卡（手动创建的网卡）独享配置，如资源名称备注、业务组、弹性IP、防火墙配置等，与主机无关，可与云主机弹性绑定。
 - 云主机的网络配置自动落到默认网卡（主机开启网卡功能时默认创建的网卡，原本绑定在云主机的EIP和防火墙都将绑定在默认网卡上），默认网卡与云主机强绑定，不支持解绑，不支持删除；
@@ -108,12 +109,21 @@ eth1和eth2的网卡写配置文件
 
 ```
 # cat /etc/sysconfig/network-scripts/route-eth1
+
 default via 10.42.0.1 dev eth1 src 10.42.71.137 table net_101
-# cat /etc/sysconfig/network-scripts/route-eth2
-default via 10.42.0.1 dev eth2 src 10.42.175.116 table net_102
+
 # cat /etc/sysconfig/network-scripts/rule-eth1
+
 from 10.42.71.137 table net_101
+
+
+
+# cat /etc/sysconfig/network-scripts/route-eth2
+
+default via 10.42.0.1 dev eth2 src 10.42.175.116 table net_102
+
 # cat /etc/sysconfig/network-scripts/rule-eth2
+
 from 10.42.175.116 table net_102
 ```
 
@@ -134,9 +144,9 @@ from 10.42.175.116 table net_102
 3、验证：使用同VPC下机器ping绑定的自定义网卡内网IP地址，可以ping通说明配置完成。
 
 
-## 常见问题
+## 常见问题FAQ
 
-### 为什么配置的双网卡不通？
+### 1、为什么配置的双网卡不通？
 
 一般情况下是由于网卡的配置的原因，可按如下方式检查：
 
@@ -148,6 +158,6 @@ from 10.42.175.116 table net_102
 
 若检查过以上配置仍旧以上不通，可提供从源IP到目的IP的网络流量途径，涉及资源相互间的逻辑关系，资源所属子网信息的拓扑图和网卡的路由配置，交由[售后资源](https://spt.ucloud.cn/)辅助查看。
 
-### 云主机未开启网卡功能，想要开启第二张网卡，如何处理？
+### 2、云主机未开启网卡功能，想要开启第二张网卡，如何处理？
 
 若云主机在创建时未开启网卡功能，后续无法开启，建议新建主机以使用网卡功能。
