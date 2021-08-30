@@ -58,7 +58,7 @@ eth2（创建的自定义网卡）
 
 修改/proc/sys/net/ipv4/conf/all/rp_filter值：
 ```
-echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter\
+echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 ```
 重启网络服务
 ```
