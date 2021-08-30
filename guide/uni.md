@@ -94,16 +94,15 @@ service network restart
 
 eth1和eth2的网卡写配置文件
 ```
+创建配置文件
 # cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
 # cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth2
-```
+
 修改文件中的
 - DEVICE=虚拟网卡的网卡名
 - HWADDR=虚拟网卡的MAC地址
 - IPADDR=虚拟网卡的IP地址
-
-
-
+```
 
 策略路由写配置文件
 
