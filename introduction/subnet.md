@@ -1,7 +1,5 @@
 # VPC和子网简介
 
-
-
 ## VPC
 
 私有网络 VPC（Virtual Private
@@ -12,7 +10,7 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
   - 192.168.0.0/16（192.168.0.0-192.168.255.255）掩码范围：最大为 /16 掩码，最小为 /29
     掩码。
     
-> 默认VPC不支持新增网段，[详情](https://cms-docs.ucloudadmin.com/vpc/configurationguide/vpcguide?id=_2%ef%bc%8c%e5%90%8d%e8%af%8d%e8%a7%a3%e9%87%8a)。
+> 默认VPC不支持新增网段，[详情](https://docs.ucloud.cn/vpc/configurationguide/vpcguide?id=_1%ef%bc%8c%e5%90%8d%e7%a7%b0%e8%a7%a3%e9%87%8a)。
 
 ## 子网
 
@@ -28,7 +26,7 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
 
 同一VPC内网络默认互通，不同VPC间网络默认不通。VPC网络互通功能可实现不同项目／不同地域的VPC间网络互通，其中不同地域间的VPC需要互通时，需要[高速通道](udpn/README)配合使用。
 
-互通的VPC间网段不允许重叠。
+互通的VPC间网段不允许重叠。详细关于VPC网络互通的能力见[VPC联通规则](https://docs.ucloud.cn/vpc/configurationguide/vpcguide?id=vpc%e8%81%94%e9%80%9a%e8%a7%84%e5%88%99)。
 
 ## 产品配额
 
@@ -38,10 +36,3 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
 | ---------- | --- |
 | 每个地域的VPC数量 | 100 |
 | 每个VPC的子网数量 | 200 |
-
-## VPC规划建议
-
-  - VPC初始网段（创建VPC时的网段）不允许删除和修改。
-  - VPC网段建议不要设置过大，VPC创建后网段可自由增删（除初始网段）。
-  - VPC网段不可与公共服务网段有重叠。（查看[公共服务网段](vpc/limit)）
-  - 网络互通的VPC之间网段不能重叠。
