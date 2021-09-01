@@ -79,6 +79,7 @@ VPN网关是基于Internet，通过加密的数据传输隧道实现云上网络
 自定义网段：标准网络网段，目前主动创建的VPC均为此类型。受历史原因，部分客户VPC内可能既包含默认网段，又包含自定义网段。
 
 默认VPC：含有默认网段的VPC。
+- 说明：默认VPC不支持新增网段，可通过[工单](https://console.ucloud.cn/uaccount/work_ticket/create)或[售后咨询](https://spt.ucloud.cn/)将默认VPC转为自定义VPC。
 
 自定义VPC：所有网段为自定义网段的VPC。
 
