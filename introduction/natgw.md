@@ -47,5 +47,5 @@ NAT网关指定子网中、已绑定弹性IP的云资源将不会出现在端口
 | UMem 云内存 | √   | √    | √    |
 | UHADOOP 托管Hadoop集群           | √   | √    | √    |
 | UDW 数据仓库              | √   | √    | √    |
-| UES ES服务        | ×   | ×    | √   |
+| UES ES服务        | ×   | ×    | √（仅无VIP类型ES支持）   |
 | UAuditHost 堡垒机  | √   | √    | √    |
