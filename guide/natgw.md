@@ -92,6 +92,7 @@ NAT网关另外提供白名单模式。
 ![image](/images/guide/natgw_outbound_rule01.png)
 
 -  默认存在一条“默认出口规则”，用于记录该NAT网关的默认出口。可通过“编辑”按钮进行修改，但无法删除。默认出口规则优先级最低。
+-  指定NAT默认出口规则为负载均衡模式时，将按照哈希算法分配出向流量，更新EIP时不对存量连接产生影响，新的连接将按照当前EIP数量均匀打散。
 
 ![image](/images/guide/natgw_default_rule.png)
 
