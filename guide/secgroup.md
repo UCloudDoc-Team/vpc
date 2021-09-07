@@ -1,5 +1,11 @@
 # 安全组
 
+## 创建支持安全组的云主机
+
+点击创建主机，选择【华北（北京）可用区C】-【快杰型0-IceLake及以上】，所创建的机器即为支持安全组的云主机。
+
+![image](/images/guide/secgroup4.png)
+
 ## 创建安全组
 
 登录控制台，【全部产品】中选择[安全组](https://console.ucloud.cn/vpc/secgroup)，点击【创建】。
