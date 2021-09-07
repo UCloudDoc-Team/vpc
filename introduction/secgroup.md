@@ -21,7 +21,7 @@
 
 ## 产品说明
 
-1、支持的产品类型：云主机（未开启网卡功能，且CPU平台在IceLake及以上）
+1、支持的产品类型：云主机（未开启网卡功能，且CPU平台在IceLake及以上）    [创建支持安全组的云主机](https://docs.ucloud.cn/vpc/guide/secgroup?id=%e5%88%9b%e5%bb%ba%e6%94%af%e6%8c%81%e5%ae%89%e5%85%a8%e7%bb%84%e7%9a%84%e4%ba%91%e4%b8%bb%e6%9c%ba)
 
 2、单资源暂只支持绑定一个安全组。
 
