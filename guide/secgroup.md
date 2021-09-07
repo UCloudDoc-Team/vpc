@@ -36,4 +36,4 @@
 ![image](/images/guide/secgroup3.png)
 
 说明：
-- 安全组规则的说明，详见[安全组产品说明](https://docs.ucloud.cn/vpc/introduction/secgroup)。
+- 安全组规则的说明，详见[安全组产品说明](https://docs.ucloud.cn/vpc/introduction/secgroup?id=%e4%ba%a7%e5%93%81%e8%af%b4%e6%98%8e)。
