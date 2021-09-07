@@ -6,6 +6,10 @@
 
 ![image](/images/guide/secgroup4.png)
 
+说明：
+- 主机的其他配置不做要求，满足上诉条件即可。
+- 当前安全组不支持虚拟网卡，故需使用安全组的机器不可开启网卡功能。
+
 ## 创建安全组
 
 登录控制台，【全部产品】中选择[安全组](https://console.ucloud.cn/vpc/secgroup)，点击【创建】。
