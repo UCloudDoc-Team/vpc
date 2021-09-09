@@ -1,7 +1,5 @@
 # 安全组
 
-> 
-
 ## 创建支持安全组的云主机
 
 1、创建新的VPC     [创建VPC](https://console.ucloud.cn/vpc/create)
