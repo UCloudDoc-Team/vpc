@@ -24,9 +24,7 @@
 - 网段的掩码最小为/29。
 - 子网中第1,2和最后一个地址为保留地址，不可用。
 
-（3）若无重叠网段联通，可通过[工单](https://console.ucloud.cn/uaccount/work_ticket/create)或[售后咨询](https://spt.ucloud.cn/)将默认VPC转为自定义VPC。
-
-（4）公共服务网段在VPC中是无法使用的，且VPC网段需大于公共服务网段，查看[公共服务网段](https://docs.ucloud.cn/vpc/limit)。
+（3）公共服务网段在VPC中是无法使用的，且VPC网段需大于公共服务网段，查看[公共服务网段](https://docs.ucloud.cn/vpc/limit)。
 
 ## VPC场景举例
 
@@ -80,7 +78,7 @@ VPN网关是基于Internet，通过加密的数据传输隧道实现云上网络
 
 * **默认VPC**：含有默认网段的VPC。
 
-> 默认VPC不支持新增网段，可通过[工单](https://console.ucloud.cn/uaccount/work_ticket/create)或[售后咨询](https://spt.ucloud.cn/)将默认VPC转为自定义VPC。
+> 默认VPC不支持新增网段。
 
 * **自定义VPC**：所有网段为自定义网段的VPC。
 
