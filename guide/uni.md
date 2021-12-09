@@ -5,52 +5,13 @@
 ## 名词解释
 
 * 默认网卡：主机开启网卡功能时由系统默认创建的网卡，原本绑定在云主机的EIP和防火墙都将落在默认网卡上。
-
 * 自定义网卡：控制台手动创建的网卡，可与云主机弹性绑定。
-
-  =================================================================================================
-
-
-## 创建网卡
-
-登录控制台，【全部产品】中选择[虚拟网卡](https://console.ucloud.cn/vpc/vnic)，点击【创建】。
-
-![image](/images/guide/uni1.png)
-
-说明：
-- 新建网卡自动绑定默认web防火墙。
-- 自定义网卡独享配置，如资源名称备注、业务组、弹性IP、防火墙配置等，与主机无关，可与云主机弹性绑定。
-- 云主机的网络配置自动落到默认网卡，默认网卡与云主机强绑定，与云主机的生命周期一致。
-
-## 使用网卡
-
-新创建的网卡是未绑定的外网弹性IP的，需要在创建完网卡后再行绑定。同时，可以在虚拟网卡列表页或详情页对网卡资源进行名称更改、绑定主机等操作。
-
-> 自定义网卡绑定云主机后，需要在云主机上配置网卡信息和策略路由到系统（默认网卡无需配置）。
-
-- 列表页操作
-![image](/images/guide/uni2.png)
-
-- 详情页操作
-![image](/images/guide/uni3.png)
-
-- 绑定网卡到云主机
-![image](/images/guide/uni4.png)
-
-说明：
-- 列表页点击点击【资源名称】或者在操作列点击【详情】即可进入资源的详情页面。
-
-- 在控制台右上角，支持按需展示网卡信息列、下载网卡资源列表、刷新网卡资源列表信息、查阅文档等操作。
-
-  ======================================================================================================
 
 ## 创建标题
 
 登录控制台，【全部产品】中选择[虚拟网卡](https://console.ucloud.cn/vpc/vnic)，点击【创建虚拟网卡】。
 
-![img](https://ushare.ucloudadmin.com/download/attachments/9620433/image2021-12-7_16-51-41.png?version=1&modificationDate=1638867101000&api=v2)
-
-![img](https://ushare.ucloudadmin.com/download/attachments/9620433/image2021-12-7_16-52-30.png?version=1&modificationDate=1638867150000&api=v2)
+![创建虚拟网卡1](../images/创建虚拟网卡1.png)![创建虚拟网卡2](../images/创建虚拟网卡2.png)
 
 说明：
 
@@ -64,9 +25,9 @@
 
 > 自定义网卡绑定云主机后，需要在云主机上配置网卡信息和策略路由到系统（默认网卡无需配置）。
 
-- 列表页操作![img](https://ushare.ucloudadmin.com/download/attachments/9620433/image2021-12-7_16-56-46.png?version=1&modificationDate=1638867407000&api=v2)
-- 详情页操作![img](https://ushare.ucloudadmin.com/download/attachments/9620433/image2021-12-7_16-58-2.png?version=1&modificationDate=1638867483000&api=v2)
-- 绑定网卡到云主机 ![image](https://static.ucloud.cn/docs/vpc/images/guide/uni4.png?v=1637732023)
+- 列表页操作![列表页操作](../images/列表页操作.png)
+- 详情页操作![列表页详情](../images/列表页详情.png)
+- 绑定网卡到云主机 ![绑定云主机](../images/绑定云主机.png)
 
 说明：
 
