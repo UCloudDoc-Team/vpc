@@ -280,17 +280,17 @@ sudo ifconfig eth1 up
 
 vim /etc/netplan/50-cloud-init.yaml，新绑定的网卡配置示例如下，根据实际进行修改
 
- [绑定虚拟网卡](../../../../Desktop/绑定虚拟网卡) 
+![网卡配置辅助IP](../images/网卡配置辅助IP-9625099.png)
 
 sudo netplan apply
 
-**3、临时配置策略路由**（主机重启会失效）
+**3、临时配置策略路由**（主机重启会失效）**
 
  ip route add default via 10.0.0.1 dev eth1 table 2000
 
  ip rule add from 10.0.0.222 table 2000
 
-**4、临时配置辅助IP(使用辅助IP时进行设置)***
+**4、临时配置辅助IP(使用辅助IP时进行设置)**
 
 1）将辅助IP绑定到对应网卡上(此处为eth1)，临时配置(主机重启会失效)
 
