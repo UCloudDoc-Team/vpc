@@ -148,7 +148,9 @@ ip addr add 10.42.175.3 dev eth2
 将IP地址替换成待绑定辅助IP地址，配置默认网卡辅助IP只需将网卡名称改成eth0，以此类推
 ```
 
-添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成
+添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成;
+
+
 
 ### CentOS 8配置指南
 
@@ -234,6 +236,8 @@ ip addr add 10.40.33.188 dev eth1
 
 添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成
 
+
+
 ### Windows配置指南
 
 标准镜像默认开通DHCP，无需多余配置。
@@ -249,6 +253,125 @@ ip addr add 10.40.33.188 dev eth1
 ![image](/images/guide/uni5.png)
 
 3、验证：使用同VPC下机器ping绑定的自定义网卡内网IP地址，可以ping通说明配置完成。
+
+
+
+### ubuntu20.04配置指南
+
+**1、关闭RPF，重启网络服务**
+
+临时关闭
+
+echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
+
+sudo service network-manager restart
+
+***永久关闭***
+
+编辑/etc/sysctl.conf文件， 修改net.ipv4.conf.all.rp_filter值为0，然后重启服务器
+
+**2、配置新绑定的虚拟网卡**
+
+假设新绑定的网卡为eth1，以下操作均基于此进行
+
+sudo ifconfig eth1 up
+
+编辑 /etc/netplan/50-cloud-init.yaml
+
+vim /etc/netplan/50-cloud-init.yaml，新绑定的网卡配置示例如下，根据实际进行修改
+
+ [绑定虚拟网卡](../../../../Desktop/绑定虚拟网卡) 
+
+sudo netplan apply
+
+**3、临时配置策略路由**（主机重启会失效）
+
+ ip route add default via 10.0.0.1 dev eth1 table 2000
+
+ ip rule add from 10.0.0.222 table 2000
+
+**4、临时配置辅助IP(使用辅助IP时进行设置)***
+
+1）将辅助IP绑定到对应网卡上(此处为eth1)，临时配置(主机重启会失效)
+
+ ip addr add 10.0.0.101/24 dev eth1 #使用辅助IP时设置
+
+ ip addr add 10.0.0.102/24 dev eth1 #使用辅助IP时设置
+
+2）辅助IP配置策略路由，临时配置(主机重启会失效)
+
+ ip rule add from 10.0.0.101 table 2000
+
+ ip rule add from 10.0.0.102 table 2000
+
+**5、永久配置策略路由和辅助IP**
+
+rc.local实现，以ubuntu20.04为例，以下配置为同时使用辅助IP的配置步骤，未使用辅助IP时去掉辅助IP相关配置即可
+
+1）、sudo vim /lib/systemd/system/rc-local.service
+
+2）、文件后添加
+
+```
+[Install]  
+WantedBy=multi-user.target  
+Alias=rc-local.service
+```
+
+3）、创建rc.local
+
+	sudo touch /etc/rc.local
+
+4）、编辑rc.local
+
+	 ip route add default via 10.0.0.1 dev eth1 table 2000  #配置策略路由
+	
+	 ip rule add from 10.0.0.222 table 2000 #虚拟网卡主IP
+	
+	 ip addr add 10.0.0.101/24 dev eth1 #添加辅助IP，使用辅助IP时设置
+	
+	 ip addr add 10.0.0.102/24 dev eth1 #添加辅助IP，使用辅助IP时设置
+	
+	 ip rule add from 10.0.0.101 table 2000 #配置辅助IP策略路由，使用辅助IP时设置
+	
+	 ip rule add from 10.0.0.102 table 2000 #配置辅助IP策略路由，使用辅助IP时设置
+
+5）.修改权限
+
+```
+sudo chmod +x /etc/rc.local
+```
+
+6）.创建软连接
+
+```
+ln -s /lib/systemd/system/rc.local.service /etc/systemd/system/
+```
+
+7）.查看策略路由配置情况
+ 重启主机
+
+**root@xx-xx-xx-xx:/home/ubuntu# ip route show table 2000** 
+
+default via 10.0.0.1 dev eth1 
+
+**root@xx-xx-xx-xx:/home/ubuntu# ip rule show**
+
+0:   from all lookup local
+
+32760: from 10.0.0.101 lookup 2000
+
+32761: from 10.0.0.102 lookup 2000
+
+32762: from 10.0.0.222 lookup 2000
+
+32763: from all lookup main
+
+32764: from all lookup default
+
+添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成。
+
+
 
 
 ## 常见问题FAQ
