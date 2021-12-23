@@ -132,3 +132,20 @@ vpc\_b禁止与vpc\_c联通，因为包含相同的“自定义网段3”。假�
 vpc\_a已与vpc\_b联通，则禁止与vpc\_c联通，因为包含相同的“自定义网段1”，且vpc\_a已于vpc\_b中相同的“自定义网段3”联通。
 
 ![](/images/configurationguide/vpcintercome031.png)
+<<<<<<< HEAD
+=======
+
+#### 例子4：跨域VPC联通
+
+本端网段与对端所有网段均不可相同，且联通的多个对端网段不可相同。
+
+vpc\_a为华北一、仅包含默认网段的默认VPC，vpc\_b、vpc\_c为上海二、仅包含默认网段的默认VPC。
+
+vpc\_a可与vpc\_b联通，两个vpc中不包含相同网段，且已有路由规则中不包含相同目标网段的跨域路由。
+
+vpc\_b可与vpc\_c联通，同地域无IP冲突的情况下，允许包含相同默认网段的VPC联通。
+
+vpc\_a禁止与vpc\_c联通，两个vpc中虽然不包含相同网段，但vpc\_a已与vpc\_b联通，vpc\_b与vpc\_c包含相同的网段。
+
+![](/images/configurationguide/vpcinterconme04.png)
+>>>>>>> 0fefb7e64ce9f79f8179814c72dca536efd362d5
