@@ -324,6 +324,7 @@ Alias=rc-local.service
 
 4）、编辑rc.local
 
+	 #!/bin/sh
 	 ip route add default via 10.0.0.1 dev eth1 table 2000  #配置策略路由
 	
 	 ip rule add from 10.0.0.222 table 2000 #虚拟网卡主IP
@@ -335,6 +336,7 @@ Alias=rc-local.service
 	 ip rule add from 10.0.0.101 table 2000 #配置辅助IP策略路由，使用辅助IP时设置
 	
 	 ip rule add from 10.0.0.102 table 2000 #配置辅助IP策略路由，使用辅助IP时设置
+	 exit 0
 
 5）.修改权限
 
