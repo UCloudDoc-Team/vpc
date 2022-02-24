@@ -24,7 +24,7 @@ Cloud）是属于用户的、逻辑隔离的网络环境。在私有网络中，
 
 ## VPC网络互通
 
-同一VPC内网络默认互通，不同VPC间网络默认不通。VPC网络互通功能可实现不同项目／不同地域的VPC间网络互通，其中不同地域间的VPC需要互通时，需要[高速通道](udpn/README)配合使用。
+同一VPC内网络默认互通，不同VPC间网络默认不通。VPC网络互通功能可实现不同项目／不同地域的VPC间网络互通。
 
 互通的VPC间网段不允许重叠。详细关于VPC网络互通的能力见[VPC联通规则](https://docs.ucloud.cn/vpc/configurationguide/vpcguide?id=vpc%e8%81%94%e9%80%9a%e8%a7%84%e5%88%99)。
 
