@@ -150,6 +150,27 @@ ip addr add 10.42.175.3 dev eth2
 
 添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成;
 
+#### 第四步：辅助IP绑定EIP后，配置策略路由步骤
+
+新建策略路由表
+
+```
+echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
+```
+
+配置策略匹配规则
+
+```
+ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+```
+
+配置策略路由
+
+```
+ip route add default via X.X.X.X（EIP） dev eth1 table ROUTER_IP_T
+```
+
 
 
 ### CentOS 8配置指南
@@ -236,6 +257,27 @@ ip addr add 10.40.33.188 dev eth1
 
 添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成
 
+#### 第四步：辅助IP绑定EIP后，配置策略路由步骤
+
+新建策略路由表
+
+```
+echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
+```
+
+配置策略匹配规则
+
+```
+ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+```
+
+配置策略路由
+
+```
+ip route add default via X.X.X.X（EIP） dev eth1 table ROUTER_IP_T
+```
+
 
 
 ### Windows配置指南
@@ -263,6 +305,8 @@ ip addr add 10.40.33.188 dev eth1
 临时关闭
 
 echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
+
+sudo apt-get install network-manager (安装network-manager工具)
 
 sudo service network-manager restart
 
@@ -372,6 +416,29 @@ default via 10.0.0.1 dev eth1
 32764: from all lookup default
 
 添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成。
+
+#### 6、辅助IP绑定EIP后，配置策略路由步骤
+
+新建策略路由表
+
+```
+echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
+```
+
+配置策略匹配规则
+
+```
+ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+```
+
+配置策略路由
+
+```
+ip route add default via X.X.X.X（EIP） dev eth1 table ROUTER_IP_T
+```
+
+
 
 
 
