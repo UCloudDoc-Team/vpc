@@ -10,7 +10,7 @@
 
 * 辅助IP：控制台手动申请辅助IP，与主IP配合使用，可与云主机弹性绑定，可申请数量与云主机配置有关。
 
-  ![辅助IP配置数量规则](../images/辅助IP配置数量规则.png)
+  ![UNI001](../images/UNI001.png)
 
 ## 创建网卡
 
@@ -75,6 +75,7 @@ echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 ```
 重启网络服务
 ```
+sudo apt-get install network-manager (安装network-manager工具)
 service network restart
 ```
 
@@ -86,6 +87,7 @@ service network restart
 #### 第二步：配置自定义网卡
 
 *配置eth1*
+
 ```
 # ifconfig eth1 10.42.71.137 netmask 255.255.0.0
 # ifconfig eth1 mtu 1454
@@ -95,6 +97,7 @@ service network restart
 ```
 
 *配置eth2*
+
 ```
 # ifconfig eth2 10.42.175.116 netmask 255.255.0.0
 # ifconfig eth2 mtu 1454
@@ -304,11 +307,13 @@ ip route add default via X.X.X.X（EIP） dev eth1 table ROUTER_IP_T
 
 临时关闭
 
+```
 echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 
 sudo apt-get install network-manager (安装network-manager工具)
 
 sudo service network-manager restart
+```
 
 ***永久关闭***
 
@@ -330,23 +335,29 @@ sudo netplan apply
 
 **3、临时配置策略路由**（主机重启会失效）**
 
+```
  ip route add default via 10.0.0.1 dev eth1 table 2000
 
  ip rule add from 10.0.0.222 table 2000
+```
 
 **4、临时配置辅助IP(使用辅助IP时进行设置)**
 
 1）将辅助IP绑定到对应网卡上(此处为eth1)，临时配置(主机重启会失效)
 
+```
  ip addr add 10.0.0.101/24 dev eth1 #使用辅助IP时设置
 
  ip addr add 10.0.0.102/24 dev eth1 #使用辅助IP时设置
+```
 
 2）辅助IP配置策略路由，临时配置(主机重启会失效)
 
+```
  ip rule add from 10.0.0.101 table 2000
 
  ip rule add from 10.0.0.102 table 2000
+```
 
 **5、永久配置策略路由和辅助IP**
 
