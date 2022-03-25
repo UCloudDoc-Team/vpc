@@ -164,14 +164,14 @@ echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
 配置策略匹配规则
 
 ```
-ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
-ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
 ```
 
 配置策略路由
 
 ```
-ip route add default via X.X.X.X（EIP） dev eth1 table ROUTER_IP_T
+ip route add default via X.X.X.X（辅助IP） dev eth1 table ROUTER_IP_T
 ```
 
 
@@ -271,14 +271,14 @@ echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
 配置策略匹配规则
 
 ```
-ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
-ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
 ```
 
 配置策略路由
 
 ```
-ip route add default via X.X.X.X（EIP） dev eth1 table ROUTER_IP_T
+ip route add default via X.X.X.X（辅助IP） dev eth1 table ROUTER_IP_T
 ```
 
 
@@ -439,14 +439,14 @@ echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
 配置策略匹配规则
 
 ```
-ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
-ip rule add from X.X.X.X（EIP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
 ```
 
 配置策略路由
 
 ```
-ip route add default via X.X.X.X（EIP） dev eth1 table ROUTER_IP_T
+ip route add default via X.X.X.X（辅助IP） dev eth1 table ROUTER_IP_T
 ```
 
 
