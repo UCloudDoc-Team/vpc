@@ -75,7 +75,6 @@ echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 ```
 重启网络服务
 ```
-sudo apt-get install network-manager (安装network-manager工具)
 service network restart
 ```
 
@@ -329,7 +328,7 @@ sudo ifconfig eth1 up
 
 vim /etc/netplan/50-cloud-init.yaml，新绑定的网卡配置示例如下，根据实际进行修改
 
-![网卡配置辅助IP](../images/网卡配置辅助IP-9625099.png)
+<img src="../images/网卡配置辅助IP-9625099.png" alt="网卡配置辅助IP" style="zoom:50%;" />
 
 sudo netplan apply
 
