@@ -328,7 +328,7 @@ sudo ifconfig eth1 up
 
 vim /etc/netplan/50-cloud-init.yaml，新绑定的网卡配置示例如下，根据实际进行修改
 
-<img src="../images/网卡配置辅助IP-9625099.png" alt="网卡配置辅助IP" style="zoom:50%;" />
+<img src="../images/网卡配置辅助IP-9625099.png" alt="网卡配置辅助IP"  />
 
 sudo netplan apply
 
