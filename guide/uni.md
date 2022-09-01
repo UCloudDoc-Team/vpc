@@ -328,7 +328,7 @@ sudo ifconfig eth1 up
 
 vim /etc/netplan/50-cloud-init.yaml，新绑定的网卡配置示例如下，根据实际进行修改
 
- [UNI--Secondry IP](../../../../Desktop/UNI--Secondry IP) 
+![](../images/网卡配置辅助IP.png)
 
 sudo netplan apply
 
