@@ -87,7 +87,7 @@ nmcli con up "System eth0"
 4、  使用arping命令通告arp信息 :若您申请的内网虚拟IP为10.4.200.X
 
 ```
-    arping -U 192.168.0.30
+    arping -I eth0 192.168.0.30
 ```
 
 ### CentOS系统实现方法二：临时添加，使用命令手动添加内网虚拟IP
