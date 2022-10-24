@@ -6,7 +6,7 @@
     * [NAT网关简介](/vpc/introduction/natgw)
     * [内网VIP简介](/vpc/introduction/vip)
     * [网络ACL简介](/vpc/introduction/acl)
-    * [安全组产品介绍](/vpc/introduction/secgroup)
+    * [安全组简介](/vpc/introduction/secgroup)
     * [路由表简介](/vpc/introduction/routetable)
     * [计费说明](/vpc/introduction/price)    
 * [使用限制](/vpc/limit)
