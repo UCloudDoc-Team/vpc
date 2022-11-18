@@ -157,20 +157,21 @@ ip addr add 10.42.175.3 dev eth2
 新建策略路由表
 
 ```
-echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
+echo '101 net_101' >> /etc/iproute2/rt_tables
 ```
 
 配置策略匹配规则
 
 ```
-ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
-ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table net_101
+ip rule add from X.X.X.X（辅助IP） table net_102
 ```
 
 配置策略路由
 
 ```
-ip route add default via X.X.X.X（网关IP） dev eth1 table ROUTER_IP_T
+ip route add default via X.X.X.X（网关IP） dev eth1 table net_101
+ip route add default via X.X.X.X（网关IP） dev eth2 table net_102
 ```
 
 
@@ -264,20 +265,19 @@ ip addr add 10.40.33.188 dev eth1
 新建策略路由表
 
 ```
-echo '2001 ROUTER_IP_T' >> /etc/iproute2/rt_tables
+echo '101 net_101' >> /etc/iproute2/rt_tables
 ```
 
 配置策略匹配规则
 
 ```
-ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
-ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
+ip rule add from X.X.X.X（辅助IP） table net_101
 ```
 
 配置策略路由
 
 ```
-ip route add default via X.X.X.X（网关IP） dev eth1 table ROUTER_IP_T
+ip route add default via X.X.X.X（网关IP） dev eth1 table net_101
 ```
 
 
