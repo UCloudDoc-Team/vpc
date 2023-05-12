@@ -204,7 +204,7 @@ eth1（创建的自定义网卡）
 修改/proc/sys/net/ipv4/conf/all/rp_filter值：
 
 ```
-echo 0 > /proc/sys/net/ipv4/conf/all/rp_filterCopyErrorSuccess
+echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 ```
 
 重启网络服务
@@ -305,25 +305,6 @@ ipv4.routing-rules:                     priority 32765 from 10.40.54.131 table 1
 
 添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成
 
-#### 第四步：辅助IP绑定EIP后，配置策略路由步骤
-
-新建策略路由表
-
-```
-echo '101 net_101' >> /etc/iproute2/rt_tables
-```
-
-配置策略匹配规则
-
-```
-ip rule add from X.X.X.X（辅助IP） table net_101
-```
-
-配置策略路由
-
-```
-ip route add default via X.X.X.X（网关IP） dev eth1 table net_101
-```
 
 
 
