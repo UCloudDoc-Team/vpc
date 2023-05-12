@@ -271,7 +271,7 @@ Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkMa
 
 #### 第三步：配置eth1的辅助ip
 
-配置前请确认辅助ip subnetwork的[子网](https://console.ucloud.cn/vpc/subnet)掩码，和主IP保持一致即可；
+配置前请确认辅助IP子网掩码，和主IP保持一致即可；
 
 将IP地址替换成待绑定辅助IP地址，配置默认网卡辅助IP只需将网卡名称改成所绑定的ethx，以此类推
 
@@ -305,7 +305,7 @@ ipv4.routing-rules:                     priority 32765 from 10.40.54.131 table 1
 
 添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成
 
-#### 第五步：辅助IP绑定EIP后，配置策略路由步骤
+#### 第四步：辅助IP绑定EIP后，配置策略路由步骤
 
 新建策略路由表
 
