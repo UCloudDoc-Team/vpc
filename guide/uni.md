@@ -213,54 +213,73 @@ echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 nmcli c reload
 ```
 
-#### 第二步：配置自定义网卡eth1
-
-eth1的网卡写配置文件，此处配置主IP即可
+#### 第二步：配置自定义网卡
 
 ```
-创建配置文件
-# cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
-
+# cp -f /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
 修改文件中的
+
 - DEVICE=虚拟网卡的网卡名
 - HWADDR=虚拟网卡的MAC地址
 - IPADDR=虚拟网卡的主IP地址
 
 示例：
 DEVICE=eth1
-HWADDR=52:54:00:1B:5E:57
-IPADDR=10.40.54.131
+HWADDR=52:54:00:a7:90:c8
+IPADDR=10.13.72.245
 ```
 
-策略路由写配置文件
+#### 第三步：配置策略路由
 
 ```
-# vim /etc/sysconfig/network-scripts/route-eth1
+# nmcli c
+NAME         UUID                                  TYPE      DEVICE
+System eth0  5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03  ethernet  eth0
+System eth1  9c92fad9-6ecb-3e6c-eb4d-8a47c6f50c04  ethernet  eth1
 
-default via 10.40.0.1 dev eth1 src 10.40.54.131 table net_101
+# nmcli c show System\ eth1 | grep -E 'ipv4.route-table|ipv4.routing-rules'
+ipv4.route-table:                       0 (unspec)
+ipv4.routing-rules:                     --
 
-# vim /etc/sysconfig/network-scripts/rule-eth1
+# nmcli c modify System\ eth1 +ipv4.route-table 101
+# nmcli c modify System\ eth1 +ipv4.routing-rules "priority 32765 from 10.13.72.245 table 101"
+# nmcli c show System\ eth1 | grep -E 'ipv4.route-table|ipv4.routing-rules'
+ipv4.route-table:                       101
+ipv4.routing-rules:                     priority 32765 from 10.13.72.245 table 101
 
-from 10.40.54.131 table net_101
+#nmcli c reload
+#nmcli c up System\ eth1
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/...)
+#ip rule
+...
+32765:   from 10.13.72.245 lookup 101
+...
 ```
 
-重启网络服务
+#### 第四步：配置辅助IP
 
 ```
-nmcli c reload
-```
+# nmcli c modify System\ eth1 +ipv4.addresses 10.13.100.199/16
+# nmcli c show System\ eth1 | grep ipv4.addresses
+ipv4.addresses:                         10.13.72.245/16, 10.13.100.199/16
 
-#### 第三步：配置辅助IP
+# nmcli c modify System\ eth1 +ipv4.routing-rules "priority 32764 from 10.13.100.199 table 101"
+# nmcli c show System\ eth1 | grep ipv4.routing-rules
+ipv4.routing-rules:                     priority 32765 from 10.13.72.245 table 101, priority 32764 from 10.13.100.199 table 101
 
-```
-ip addr add 10.40.33.188 dev eth1
+# nmcli c reload
+# nmcli c up System\ eth1
 
-将IP地址替换成待绑定辅助IP地址，配置默认网卡辅助IP只需将网卡名称改成eth0，以此类推
+#ip rule
+...
+32764:   from 10.13.100.199 lookup 101
+32765:   from 10.13.72.245 lookup 101
+...
 ```
 
 添加的虚拟网卡主IP和辅助IP均可以ping通即配置完成
 
-#### 第四步：辅助IP绑定EIP后，配置策略路由步骤
+#### 第五步：辅助IP绑定EIP后，配置策略路由步骤
 
 新建策略路由表
 
