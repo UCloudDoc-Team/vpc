@@ -194,7 +194,7 @@ eth1（创建的自定义网卡）
 (辅助IP) 10.40.33.188
 (辅助IP) 10.40.134.89
 ...
-(辅助IP) 10.40.44.173
+(辅助IP) 10.40.44.17
 ```
 
 #### 第一步：关闭RPF
@@ -204,7 +204,7 @@ eth1（创建的自定义网卡）
 修改/proc/sys/net/ipv4/conf/all/rp_filter值：
 
 ```
-echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
+echo 0 > /proc/sys/net/ipv4/conf/all/rp_filterCopyErrorSuccess
 ```
 
 重启网络服务
@@ -213,10 +213,13 @@ echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 nmcli c reload
 ```
 
-#### 第二步：配置自定义网卡
+#### 第二步：配置自定义网卡eth1
 
-```
+eth1的网卡写配置文件，此处配置主IP即可
+
+```bash
 # cp -f /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
+# vim /etc/sysconfig/network-scripts/ifcfg-eth1
 修改文件中的
 
 - DEVICE=虚拟网卡的网卡名
@@ -225,55 +228,78 @@ nmcli c reload
 
 示例：
 DEVICE=eth1
-HWADDR=52:54:00:a7:90:c8
-IPADDR=10.13.72.245
+HWADDR=52:54:00:1B:5E:57
+IPADDR=10.40.54.131
 ```
 
-#### 第三步：配置策略路由
+通过nmc配置eth1主网卡的策略路由；
 
-```
-# nmcli c
-NAME         UUID                                  TYPE      DEVICE
-System eth0  5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03  ethernet  eth0
-System eth1  9c92fad9-6ecb-3e6c-eb4d-8a47c6f50c04  ethernet  eth1
+新建策略路由表
 
-# nmcli c show System\ eth1 | grep -E 'ipv4.route-table|ipv4.routing-rules'
-ipv4.route-table:                       0 (unspec)
-ipv4.routing-rules:                     --
-
+```bash
 # nmcli c modify System\ eth1 +ipv4.route-table 101
-# nmcli c modify System\ eth1 +ipv4.routing-rules "priority 32765 from 10.13.72.245 table 101"
+```
+
+配置策略路由
+
+```bash
+# ip rule
+0:	from all lookup local
+32766:	from all lookup main
+32767:	from all lookup defaul
+//未配置过任何策略路由，priority从32765开始递减
+# nmcli c modify System\ eth1 +ipv4.routing-rules "priority 32765 from 10.40.54.131 table 101"
 # nmcli c show System\ eth1 | grep -E 'ipv4.route-table|ipv4.routing-rules'
 ipv4.route-table:                       101
-ipv4.routing-rules:                     priority 32765 from 10.13.72.245 table 101
+ipv4.routing-rules:                     priority 32765 from 10.40.54.131 table 101
+```
 
+重启网络服务，并检查策略路由规则
+
+```bash
 #nmcli c reload
 #nmcli c up System\ eth1
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/...)
 #ip rule
 ...
-32765:   from 10.13.72.245 lookup 101
+32765:   from 10.40.54.131 lookup 101
 ...
 ```
 
-#### 第四步：配置辅助IP
+添加的虚拟网卡主IP，若有绑定外网弹性ip防火墙规则放行后可以ping通，即配置完成
+
+
+#### 第三步：配置eth1的辅助ip
+
+配置前请确认辅助ip subnetwork的[子网](https://console.ucloud.cn/vpc/subnet)掩码，和主IP保持一致即可；
+
+将IP地址替换成待绑定辅助IP地址，配置默认网卡辅助IP只需将网卡名称改成所绑定的ethx，以此类推
+
+```bash
+# nmcli c modify System\ eth1 +ipv4.addresses X.X.X.X（辅助IP）/子网掩码
+# nmcli c show System\ eth1 | grep ipv4.addresses
+ipv4.addresses:                         10.40.54.131/16, $X.X.X.X（辅助IP）/子网掩码
 
 ```
-# nmcli c modify System\ eth1 +ipv4.addresses 10.13.100.199/16
-# nmcli c show System\ eth1 | grep ipv4.addresses
-ipv4.addresses:                         10.13.72.245/16, 10.13.100.199/16
 
-# nmcli c modify System\ eth1 +ipv4.routing-rules "priority 32764 from 10.13.100.199 table 101"
+通过nmcli配置eth1辅助ip策略路由
+
+```bash
+# nmcli c modify System\ eth1 +ipv4.routing-rules "priority 32764 from X.X.X.X（辅助IP） table 101"
 # nmcli c show System\ eth1 | grep ipv4.routing-rules
-ipv4.routing-rules:                     priority 32765 from 10.13.72.245 table 101, priority 32764 from 10.13.100.199 table 101
+ipv4.routing-rules:                     priority 32765 from 10.40.54.131 table 101, priority 32764 from X.X.X.X（辅助IP） table 101
+```
 
+重启网络服务，并检查策略路由规则
+
+```bash
 # nmcli c reload
 # nmcli c up System\ eth1
 
 #ip rule
 ...
-32764:   from 10.13.100.199 lookup 101
-32765:   from 10.13.72.245 lookup 101
+32764:   from X.X.X.X（辅助IP） lookup 101
+32765:   from 10.40.54.131 lookup 101
 ...
 ```
 
