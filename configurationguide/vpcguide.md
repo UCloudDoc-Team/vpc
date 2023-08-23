@@ -102,4 +102,4 @@ vpc\_b禁止与vpc\_c联通，因为包含相同的“自定义网段3”。假�
 
 vpc\_a已与vpc\_b联通，则禁止与vpc\_c联通，因为包含相同的“自定义网段1”，且vpc\_a已于vpc\_b中相同的“自定义网段3”联通。
 
-![](/images/configurationguide/vpcintercome031.png
+![](/images/configurationguide/vpcintercome031.png)
