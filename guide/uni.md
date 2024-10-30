@@ -497,6 +497,66 @@ ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
 ip route add default via X.X.X.X（网关IP） dev eth1 table ROUTER_IP_T
 ```
 
+## EIP网卡可见模式绑定虚拟网卡（centos7.X）
+
+EIP以**EIP网卡可见模式**与虚拟网卡绑定，您可以在操作系统的网卡信息中查看EIP信息。
+
+操作之前，请先确认是否满足如下信息；
+
+### 开启EIP网卡可见
+
+- 您已经创建了开启虚拟网卡功能的云主机。
+- 您已经在控制台开启了EIP网卡可见功能。
+
+**注意事项**
+
+- 开启EIP网卡可见模式后，需在云主机配进行单独的配置，才能正常使用该能力。
+- 一个网卡开启EIP网卡可见功能后，可以同时绑定内网IP和外网IP，内网IP如果想访问公网，需通过绑定nat网关形式才能具备功能的能力。
+
+**关闭RPF**
+
+编辑/etc/sysctl.conf文件， 修改net.ipv4.conf.all.rp_filter值为0，然后重启服务器
+
+```Shell
+vi /etc/sysctl.conf
+net.ipv4.conf.all.rp_filter = 0 
+```
+
+**配置自定义网卡**
+
+```Shell
+ifconfig eth1 EIP地址 netmask 255.255.0.0
+ifconfig eth1 mtu 1454
+echo "101 net_101 " >> /etc/iproute2/rt_tables
+ip r 查询网关地址
+ip r add default via 网关地址 dev eth1 src EIP地址 onlink table 101
+ip rule add from EIP地址 table net_101
+```
+
+**创建配置文件**
+
+```Shell
+复制文件
+cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
+修改文件内容
+ vi /etc/sysconfig/network-scripts/ifcfg-eth1
+修改文件中的
+- DEVICE=虚拟网卡的网卡名
+- HWADDR=虚拟网卡的MAC地址
+- IPADDR=虚拟网卡的IP地址
+```
+
+**策略路由写配置文件**
+
+```Shell
+vi /etc/sysconfig/network-scripts/route-eth1
+
+default via 网关地址 dev eth1 src EIP地址 onlink table net_101
+
+vi /etc/sysconfig/network-scripts/rule-eth1
+
+from EIP地址 table net_101
+```
 
 
 
