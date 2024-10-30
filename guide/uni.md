@@ -497,9 +497,9 @@ ip rule add from X.X.X.X（辅助IP） table ROUTER_IP_T
 ip route add default via X.X.X.X（网关IP） dev eth1 table ROUTER_IP_T
 ```
 
-## EIP网卡可见模式绑定虚拟网卡（centos7.X）
+## EIP网卡可见模式
 
-EIP以**EIP网卡可见模式**与虚拟网卡绑定，您可以在操作系统的网卡信息中查看EIP信息。
+EIP以**EIP网卡可见模式**与虚拟网卡绑定，您可以在操作系统的网卡信息中查看EIP信息，以centos7.X系统为例。
 
 操作之前，请先确认是否满足如下信息；
 
