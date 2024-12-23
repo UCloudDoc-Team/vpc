@@ -86,14 +86,13 @@
 - 控制台添加或删除IP后，可以通过重启云主机或者执行下发命令行的方式，让修改的IP信息生效
 
 ```
-#cloud-config
-bootcmd:
-- curl http://config-uni.sh | sh
+sudo cloud-init init
 ```
 
 **注意事项**
 
 - 开启EIP网卡可见模式后，EIP和内网IP均支持自动化配置。
+- 控制台操作完成后，配置下发预计10-30s左右，
 
 ### CentOS7配置指南
 
