@@ -593,9 +593,7 @@ ip route add default via 10.50.0.1 dev eth0 src 【默认出外网的EIP】
 方式二，指定默认出口，在虚拟网卡详情页，选择指定IP座位默认出口后，重启云主机或运行如下命令即可完成，（目前仅支持主机镜像为 Ubuntu 20.04 和Ubuntu 22.04 的虚拟网卡可以通过该方式设置）
 
 ```Shell
-#cloud-config
-bootcmd:
-- curl http://config-uni.sh | sh
+sudo cloud-init init
 ```
 
 
