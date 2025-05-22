@@ -30,6 +30,7 @@
     * [安全组](/vpc/guide/secgroup)
     * [路由表](/vpc/guide/routetable)
     * [虚拟网卡](/vpc/guide/uni)
+    * [IPv6网关](/vpc/guide/ipv6gw)
 * [FAQ](/vpc/faq) 
 
 

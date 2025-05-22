@@ -7,6 +7,7 @@
     * [内网VIP简介](/vpc/introduction/vip)
     * [网络ACL简介](/vpc/introduction/acl)
     * [路由表简介](/vpc/introduction/routetable)
+    * [IPv6网关简介](/vpc/introduction/ipv6gw)
     * [计费说明](/vpc/introduction/price)    
 * [使用限制](/vpc/limit)
 * 规划建议
@@ -26,10 +27,11 @@
     * [内网VIP](/vpc/guide/vip)
     * [网络ACL](/vpc/guide/networkacl)
     * [路由表](/vpc/guide/routetable)
+    * [IPv6网关](/vpc/guide/ipv6gw)
 * [FAQ](/vpc/faq) 
 
 
-   
+
 
 
 
