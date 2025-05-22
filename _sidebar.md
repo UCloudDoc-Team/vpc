@@ -8,6 +8,7 @@
     * [网络ACL简介](/vpc/introduction/acl)
     * [安全组简介](/vpc/introduction/secgroup)
     * [路由表简介](/vpc/introduction/routetable)
+    * [IPv6网关简介](/vpc/introduction/ipv6gw)
     * [计费说明](/vpc/introduction/price)    
 * [使用限制](/vpc/limit)
 * 规划建议
