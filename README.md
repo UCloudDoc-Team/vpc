@@ -28,6 +28,7 @@
     * [网络ACL](/vpc/guide/networkacl)
     * [路由表](/vpc/guide/routetable)
     * [IPv6网关](/vpc/guide/ipv6gw)
+    * [VPC前缀](/vpc/guide/vpc-prefix-lists)
 * [FAQ](/vpc/faq) 
 
 

@@ -31,6 +31,7 @@
     * [路由表](/vpc/guide/routetable)
     * [虚拟网卡](/vpc/guide/uni)
     * [IPv6网关](/vpc/guide/ipv6gw)
+    * [VPC前缀](/vpc/guide/vpc-prefix-lists)
 * [FAQ](/vpc/faq) 
 
 
