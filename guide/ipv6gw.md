@@ -14,7 +14,7 @@ IPv6 网关（IPv6 Gateway）是VPC的一个IPv6流量网关。默认申请的IP
 
 #### **支持IPv6的云资源**
 
--  云主机 UHost （仅支持绑定安全组的云主机，且镜像为centos7.9 EOL 或Debian11.7）
+-  云主机 UHost （仅支持绑定安全组的CPU 云主机）
 - 应用型负载均衡 ALB
 - 网络型负载均衡 NLB
 - 私有连接PrivateLink
