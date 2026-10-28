@@ -86,7 +86,7 @@
 - 控制台添加或删除IP后，可以通过重启云主机或者执行下发命令行的方式，让修改的IP信息生效
 
 ```
-sudo cloud-init init
+sudo cloud-init single --name scripts-per-boot
 ```
 
 **注意事项**
